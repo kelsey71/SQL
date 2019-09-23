@@ -1,0 +1,7 @@
+/* Dense Rank */
+
+SELECT MAX(Salary) as SecondHighesSalary
+FROM(SELECT(Salary, dense_rank() over (order by salary desc) as rank
+    FROM employy ))
+WHERE rank = 2;
+
